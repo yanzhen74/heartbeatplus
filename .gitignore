@@ -27,3 +27,6 @@
 *.exe
 *.out
 *.app
+heartbeatplus/heartbeatplus.opensdf
+heartbeatplus/heartbeatplus.sdf
+heartbeatplus/heartbeatplus.suo
