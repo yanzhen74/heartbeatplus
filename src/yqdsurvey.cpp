@@ -1,10 +1,10 @@
 #include <assert.h>
 //#include <libc.h>
 #include <stdio.h>
-#include "nn.h"
-#include "survey.h"
-#include "utils/sleep.h"
-#include <string>
+#include "nanomsg/nn.h"
+#include "nanomsg/survey.h"
+#include "nanomsg/utils/sleep.h"
+#include <string.h>
 #include <time.h>
 
 using namespace std;
@@ -29,8 +29,8 @@ int server (const char *url)
 	int millis = (int)(1000);
 	int rc = nn_setsockopt (sock, NN_SOL_SOCKET, NN_RCVTIMEO,
 		&millis, sizeof (millis));
-	assert (rc == 0, "Can't set recv timeout");
-	assert (sock >= 0);
+	//assert (rc == 0, "Can't set recv timeout");
+	//assert (sock >= 0);
 	assert (nn_bind (sock, url) >= 0);
 	while(1)
 	{
@@ -70,7 +70,7 @@ int client (const char *url, const char *name)
 	int millis = (int)(3000);
 	int rc = nn_setsockopt (sock, NN_SOL_SOCKET, NN_RCVTIMEO,
 		&millis, sizeof (millis));
-	assert (rc == 0, "Can't set recv timeout");
+	//assert (rc == 0, "Can't set recv timeout");
 	char *msg = new char[100];
 	assert (sock >= 0);
 	assert (nn_connect (sock, url) >= 0);
