@@ -3,9 +3,10 @@ NAME = hbclient
 EXENAME = heartbeat
 
 INC3 = ../include
-LIBS = ../lib
+LINKDIRS = -L../lib -L/usr/local/lib
+LINKLIBS = -lhbclient -lnanomsg
 INCLUDES = -I$(INC3)
-CFLAGS = -ldl $(INCLUDES) -lhbclient -lnanomsg
+CFLAGS = -ldl $(INCLUDES) $(LINKDIRS) $(LINKLIBS)
 
 SRCS = client.cpp
 OBJS = $(filter %.o, $(SRCS:.cpp=.o))
