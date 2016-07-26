@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\yqdsurvey.cpp">
+    <ClCompile Include="..\..\src\heartbeat.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

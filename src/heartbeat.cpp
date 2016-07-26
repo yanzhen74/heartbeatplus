@@ -29,8 +29,17 @@ int server (const char *url)
 	int millis = (int)(1000);
 	int rc = nn_setsockopt (sock, NN_SOL_SOCKET, NN_RCVTIMEO,
 		&millis, sizeof (millis));
+	if (rc != 0)
+	{
+		printf("Can't set recv timeout");
+		return -1;
+	}
 	//assert (rc == 0, "Can't set recv timeout");
 	//assert (sock >= 0);
+	if (sock < 0)
+	{
+		return -1;
+	}
 	assert (nn_bind (sock, url) >= 0);
 	while(1)
 	{
@@ -71,6 +80,11 @@ int client (const char *url, const char *name)
 	int rc = nn_setsockopt (sock, NN_SOL_SOCKET, NN_RCVTIMEO,
 		&millis, sizeof (millis));
 	//assert (rc == 0, "Can't set recv timeout");
+	if (rc != 0)
+	{
+		printf("Can't set recv timeout");
+		return -1;
+	}
 	char *msg = new char[100];
 	assert (sock >= 0);
 	assert (nn_connect (sock, url) >= 0);
@@ -106,13 +120,13 @@ int client (const char *url, const char *name)
 
 int main (const int argc, const char **argv)
 {
-	if (strncmp (SERVER, argv[1], strlen (SERVER)) == 0 && argc >= 2)
+	if (argc >= 2 && strncmp (SERVER, argv[1], strlen (SERVER)) == 0 )
 		return server (argv[2]);
-	else if (strncmp (CLIENT, argv[1], strlen (CLIENT)) == 0 && argc >= 3)
+	else if (argc >= 3 && strncmp (CLIENT, argv[1], strlen (CLIENT)) == 0 )
 		return client (argv[2], argv[3]);
 	else
 	{
-		fprintf (stderr, "Usage: survey %s|%s <URL> <ARG> ...\n",
+		fprintf (stderr, "Usage: heartbeat %s|%s <URL> <ARG> ...\n",
 			SERVER, CLIENT);
 		return 1;
 	}
