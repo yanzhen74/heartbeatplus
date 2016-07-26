@@ -5,6 +5,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heartbeat", "yqdsurvey\yqds
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hbclient", "hbclient\hbclient.vcxproj", "{195890E8-3415-48E6-96E4-C85DA0C49EE1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D7D62D68-27F8-438F-9BD5-5E7A5A8B6827}"
+	ProjectSection(SolutionItems) = preProject
+		..\src\Makefile = ..\src\Makefile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32

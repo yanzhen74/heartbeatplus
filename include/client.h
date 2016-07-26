@@ -22,8 +22,12 @@ namespace poac{namespace net
 		~CHeartBeatClient();
 	public:
 		bool IsTimedOut();
+		bool IsConnected(int sock);
+		bool IsConnectStatusChanged();
+		void Reset();
 	protected:
 		volatile bool m_bTimedOut;
+		volatile bool m_bConnectStatusChanged;
 	private:
 		char* __date();
 	};
