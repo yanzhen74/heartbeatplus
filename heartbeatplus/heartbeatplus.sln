@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heartbeat", "yqdsurvey\yqdsurvey.vcxproj", "{3C3031B7-EC43-4A29-BA5E-DFA27490AAB1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hbclient", "hbclient\hbclient.vcxproj", "{195890E8-3415-48E6-96E4-C85DA0C49EE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,14 @@ Global
 		{3C3031B7-EC43-4A29-BA5E-DFA27490AAB1}.Release|Win32.Build.0 = Release|Win32
 		{3C3031B7-EC43-4A29-BA5E-DFA27490AAB1}.ReleaseStatic|Win32.ActiveCfg = ReleaseStatic|Win32
 		{3C3031B7-EC43-4A29-BA5E-DFA27490AAB1}.ReleaseStatic|Win32.Build.0 = ReleaseStatic|Win32
+		{195890E8-3415-48E6-96E4-C85DA0C49EE1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{195890E8-3415-48E6-96E4-C85DA0C49EE1}.Debug|Win32.Build.0 = Debug|Win32
+		{195890E8-3415-48E6-96E4-C85DA0C49EE1}.DebugStatic|Win32.ActiveCfg = Debug|Win32
+		{195890E8-3415-48E6-96E4-C85DA0C49EE1}.DebugStatic|Win32.Build.0 = Debug|Win32
+		{195890E8-3415-48E6-96E4-C85DA0C49EE1}.Release|Win32.ActiveCfg = Release|Win32
+		{195890E8-3415-48E6-96E4-C85DA0C49EE1}.Release|Win32.Build.0 = Release|Win32
+		{195890E8-3415-48E6-96E4-C85DA0C49EE1}.ReleaseStatic|Win32.ActiveCfg = Release|Win32
+		{195890E8-3415-48E6-96E4-C85DA0C49EE1}.ReleaseStatic|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
