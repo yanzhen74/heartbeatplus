@@ -1,4 +1,0 @@
-Tue Jul 26 10:44:00 2016: CLIENT (client1): Connected Status:1
-Tue Jul 26 10:44:09 2016: CLIENT (client1): RECEIVE Timed out; SERVER:0
-Tue Jul 26 10:44:09 2016: CLIENT (client1): Connected Status:0
-Tue Jul 26 10:44:14 2016: CLIENT (client1): Connected Status:1
