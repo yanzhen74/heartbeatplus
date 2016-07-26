@@ -29,6 +29,7 @@ namespace poac{namespace net
 		volatile bool m_bTimedOut;
 		volatile bool m_bConnectStatusChanged;
 	private:
+		void __Log(const char *msg);
 		char* __date();
 	};
 }

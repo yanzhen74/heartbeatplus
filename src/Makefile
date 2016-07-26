@@ -18,6 +18,7 @@ all: $(EXENAME)
 
 $(EXENAME): $(LIB)
 	g++ hearbeat.cpp -DNODEBUG CFLAGS -o $(EXENAME)
+	cp $(EXENAME) ../setup/$(EXENAME)
 
 $(LIB): $(OBJS)
 	@echo '===> Linking $(LIB)'

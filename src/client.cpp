@@ -38,6 +38,7 @@ namespace poac{ namespace net
 			return -1;
 		}
 		char *msg = new char[100];
+		char *log = new char[200];
 		assert (sock >= 0);
 		assert (nn_connect (sock, url) >= 0);
 		bool isConnected = IsConnected(sock);
@@ -60,16 +61,28 @@ namespace poac{ namespace net
 			else if (isConnected)
 			{
 				printf ("CLIENT (%s): RECEIVE Timed out; SERVER:%d\n", name, nn_get_statistic(sock, NN_STAT_CURRENT_CONNECTIONS));
+				sprintf (log, "CLIENT (%s): RECEIVE Timed out; SERVER:%d\n", name, nn_get_statistic(sock, NN_STAT_CURRENT_CONNECTIONS));
+				__Log(log);
 				m_bTimedOut = true;
 			}
 			if (isConnected != IsConnected(sock))
 			{
 				m_bConnectStatusChanged = true;
 				printf ("CLIENT (%s): Connected Status:%d\n", name, nn_get_statistic(sock, NN_STAT_CURRENT_CONNECTIONS));
+				sprintf (log, "CLIENT (%s): Connected Status:%d\n", name, nn_get_statistic(sock, NN_STAT_CURRENT_CONNECTIONS));
+				__Log(log);
 			}
 			isConnected = IsConnected(sock);
 		}
 		return nn_shutdown (sock, 0);
+	}
+
+	void CHeartBeatClient::__Log(const char *msg)
+	{
+		char *d = __date();
+		FILE *f = fopen("log.txt", "at");
+		fprintf(f, "%s: %s", d, msg);
+		fclose(f);
 	}
 
 	char *CHeartBeatClient::__date ()
