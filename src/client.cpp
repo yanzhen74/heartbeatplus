@@ -80,7 +80,7 @@ namespace poac{ namespace net
 	void CHeartBeatClient::__Log(const char *msg)
 	{
 		char *d = __date();
-		FILE *f = fopen("log.txt", "at");
+		FILE *f = fopen("heartbeatlog.txt", "at");
 		fprintf(f, "%s: %s", d, msg);
 		fclose(f);
 	}
