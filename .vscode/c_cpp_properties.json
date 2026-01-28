@@ -1,0 +1,41 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/src",
+                "C:/Program Files (x86)/Microsoft Visual Studio/**",
+                "C:/Program Files/Microsoft Visual Studio/**",
+                "${workspaceFolder}/vcpkg/installed/x64-windows/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "WIN32",
+                "_WINDOWS",
+                "NN_HAVE_WINDOWS",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_WIN32_WINNT=0x0600",
+                "NN_HAVE_CONDVAR=1",
+                "NN_USE_WINSOCK",
+                "NN_STATIC_LIB"
+            ],
+            "compilerPath": "cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x86",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "C:/Program Files (x86)/Microsoft Visual Studio/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}

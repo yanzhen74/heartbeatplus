@@ -82,3 +82,18 @@ heartbeatplus/yqdsurvey/Debug/yqdsurvey.log
 heartbeatplus/yqdsurvey/Debug/yqdsurvey.unsuccessfulbuild
 heartbeatplus/yqdsurvey/Debug/yqdsurvey.write.1.tlog
 /setup/log.txt
+build/heartbeatlog.txt
+
+# vcpkg - 忽略构建相关的目录，只保留已安装的库
+vcpkg/buildtrees/
+vcpkg/downloads/
+vcpkg/packages/
+vcpkg/ports/
+vcpkg/scripts/
+vcpkg/toolsrc/
+vcpkg/triplets/
+vcpkg/versions/
+vcpkg/docs/
+
+# 但保留已安装的库文件
+!vcpkg/installed/

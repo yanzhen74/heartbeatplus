@@ -1,0 +1,79 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-heartbeat-client-lib",
+            "type": "shell",
+            "command": "cl",
+            "args": [
+                "/c",
+                "${workspaceFolder}/src/client.cpp",
+                "/I${workspaceFolder}/include",
+                "/I${workspaceFolder}/vcpkg/installed/x64-windows/include",
+                "/Fo:${workspaceFolder}/build/client.obj",
+                "/W3",
+                "/EHsc",
+                "/DNN_STATIC_LIB",
+                "/D_CRT_SECURE_NO_WARNINGS"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "编译心跳客户端库",
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "build-heartbeat-exe",
+            "type": "shell",
+            "command": "cl",
+            "args": [
+                "/c",
+                "${workspaceFolder}/src/heartbeat.cpp",
+                "/I${workspaceFolder}/include",
+                "/I${workspaceFolder}/vcpkg/installed/x64-windows/include",
+                "/Fo:${workspaceFolder}/build/heartbeat.obj",
+                "/W3",
+                "/EHsc",
+                "/DNN_STATIC_LIB",
+                "/D_CRT_SECURE_NO_WARNINGS"
+            ],
+            "group": "build",
+            "detail": "编译心跳主程序目标文件",
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "link-heartbeat-app",
+            "type": "shell",
+            "command": "link",
+            "args": [
+                "${workspaceFolder}/build/heartbeat.obj",
+                "${workspaceFolder}/build/client.obj",
+                "/LIBPATH:${workspaceFolder}/vcpkg/installed/x64-windows/lib",
+                "nanomsg.lib",
+                "Ws2_32.lib",
+                "Mswsock.lib",
+                "/OUT:${workspaceFolder}/build/heartbeat.exe"
+            ],
+            "dependsOn": ["build-heartbeat-exe", "build-heartbeat-client-lib"],
+            "group": "build",
+            "detail": "链接生成心跳应用程序",
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "build-all",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "if not exist build mkdir build && cl /c ${workspaceFolder}/src/client.cpp /I${workspaceFolder}/include /I${workspaceFolder}/vcpkg/installed/x64-windows/include /Fo:${workspaceFolder}/build/client.obj /W3 /EHsc /DNN_STATIC_LIB /D_CRT_SECURE_NO_WARNINGS && cl /c ${workspaceFolder}/src/heartbeat.cpp /I${workspaceFolder}/include /I${workspaceFolder}/vcpkg/installed/x64-windows/include /Fo:${workspaceFolder}/build/heartbeat.obj /W3 /EHsc /DNN_STATIC_LIB /D_CRT_SECURE_NO_WARNINGS && link ${workspaceFolder}/build/heartbeat.obj ${workspaceFolder}/build/client.obj /LIBPATH:${workspaceFolder}/vcpkg/installed/x64-windows/lib nanomsg.lib Ws2_32.lib Mswsock.lib /OUT:${workspaceFolder}/build/heartbeat.exe /SUBSYSTEM:CONSOLE"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "完整构建整个项目",
+            "problemMatcher": ["$msCompile"]
+        }
+    ]
+}

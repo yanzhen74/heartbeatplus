@@ -1,0 +1,18 @@
+{
+    "C_Cpp.errorSquiggles": "enabled",
+    "files.associations": {
+        "*.h": "cpp",
+        "*.c": "c",
+        "*.cpp": "cpp",
+        "*.hpp": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "cl.exe",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.intelliSenseEngine": "default",
+    
+    "extensions.ignoreRecommendations": false,
+    "extensions.recommendations": [
+        "ms-vscode.cpptools"
+    ]
+}

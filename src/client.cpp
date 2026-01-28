@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include "nanomsg/nn.h"
 #include "nanomsg/survey.h"
-#include "nanomsg/utils/sleep.h"
 #include <string.h>
 
 using namespace std;
